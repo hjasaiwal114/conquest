@@ -5,6 +5,9 @@ import { GiPadlock } from "react-icons/gi";
 import { useForm } from "react-hook-form";
 import { loginSchema, LoginSchema } from "@/lib/schemas/LoginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {signInUser } from "@/app/actions/authActions";
+import { useRouter } from "next/router";
+
 export default function LoginForm() {
   const {
     register,
@@ -14,7 +17,13 @@ export default function LoginForm() {
     resolver: zodResolver(loginSchema),
     mode: "onTouched",
   });
-  const onSubmit = (data: LoginSchema) => console.log(data);
+  const router = useRouter();
+
+  const onSubmit = async (data: LoginSchema) => {
+    const result = await SignInUser(data);
+    console.log("result:::", result);
+  }
+
   return (
     <Card className="w-3/5 mx-auto">
       <CardHeader className="flex flex-col items-center justify-center">

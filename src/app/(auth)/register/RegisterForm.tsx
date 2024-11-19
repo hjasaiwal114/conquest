@@ -1,5 +1,5 @@
 "use client";
-import { RegisterSchema, registerSchema } from "@/lib/schema/RegisterSchema";
+import { RegisterSchema, registerSchema } from "@/lib/schemas/RegisterSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardHeader, CardBody, Button, Input } from "@nextui-org/react";
 import React from "react";
